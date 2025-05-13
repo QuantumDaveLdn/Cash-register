@@ -55,7 +55,7 @@ start index.html   # Windows
 ```
 
 **OR**
-Visit the GitHub Pages site at:
+Visit the GitHub Pages site at: https://quantumdaveldn.github.io/Cash-register/
 
 ## Technologies Used
 * HTML5
