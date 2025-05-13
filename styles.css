@@ -1,0 +1,514 @@
+/* Modern Cash Register App Styling */
+:root {
+    --primary: #4A9D5F;
+    --primary-dark: #3a7c4a;
+    --secondary: #2e7a41;
+    --dark: #1e3a2b;
+    --light: #f0f8f3;
+    --accent: #ffd700;
+    --error: #e74c3c;
+    --success: #27ae60;
+    --waiting: #3498db;
+    --text-dark: #333;
+    --text-light: #f8f8f8;
+    --border-radius: 12px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e0f2e9, #c7e6d7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-dark);
+}
+
+.cash-register-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Section */
+.header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Main Content Section */
+.register-body {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .register-body {
+        flex-direction: row;
+    }
+}
+
+.transaction-panel, .results-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Price Display */
+.price-display, .cash-input, .status-display, .change-display {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.price-display h2, .cash-input h2, .status-display h2, .change-display h2, .drawer-display h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+}
+
+.price-screen {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: right;
+    border: 2px solid #ddd;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Cash Input */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.currency-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #eee;
+    height: 100%;
+    border-right: 2px solid #ddd;
+}
+
+#cash-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 1rem;
+    font-size: 1.5rem;
+    outline: none;
+    width: 100%;
+    text-align: right;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 6px rgba(74, 157, 95, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(74, 157, 95, 0.3);
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+}
+
+/* Status Display */
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.status-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.status-icon img {
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+.status-icon.waiting {
+    background-color: var(--waiting);
+}
+
+.status-icon.success {
+    background-color: var(--success);
+}
+
+.status-icon.error {
+    background-color: var(--error);
+}
+
+.status-icon.closed {
+    background-color: var(--dark);
+}
+
+.status-message {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Change Display */
+.change-container {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.total-change {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.change-breakdown {
+    list-style: none;
+}
+
+.change-breakdown li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+.change-breakdown li:last-child {
+    border-bottom: none;
+}
+
+/* Cash Drawer Section */
+.drawer-display {
+    padding: 1.5rem;
+    background-color: var(--light);
+    border-top: 2px solid #ddd;
+}
+
+.cash-drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.denomination-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.denomination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    min-width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.denomination:hover {
+    transform: translateY(-5px);
+}
+
+.denomination span {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* 3D Coin and Bill Styling */
+.coin {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+    background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.2),
+        inset 0 2px 5px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: var(--dark);
+    border: 2px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.coin:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent);
+    pointer-events: none;
+}
+
+.penny .coin {
+    background: linear-gradient(135deg, #b87333, #da8a47);
+}
+
+.nickel .coin {
+    background: linear-gradient(135deg, #a8a9ad, #d1d1d6);
+}
+
+.dime .coin {
+    background: linear-gradient(135deg, #c0c0c0, #e5e5e5);
+    font-size: 0.9rem;
+}
+
+.quarter .coin {
+    background: linear-gradient(135deg, #a0a0a0, #d5d5d5);
+}
+
+.bill {
+    width: 70px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--dark);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transform: perspective(500px) rotateX(10deg);
+    transition: all 0.3s ease;
+}
+
+.bill:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/collection/components/icon/svg/cash-outline.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.bill:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.one .bill {
+    background-color: #d6e0ee;
+}
+
+.five .bill {
+    background-color: #e9f0d9;
+}
+
+.ten .bill {
+    background-color: #f2e0c9;
+}
+
+.twenty .bill {
+    background-color: #e5d9f2;
+}
+
+.hundred .bill {
+    background-color: #c9e8f2;
+    font-size: 0.8rem;
+}
+
+.denomination:hover .coin,
+.denomination:hover .bill {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .register-body {
+        flex-direction: column;
+    }
+    
+    .denomination-row {
+        flex-wrap: wrap;
+    }
+    
+    .denomination {
+        min-width: 70px;
+    }
+    
+    .coin {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .bill {
+        width: 60px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+    
+    .hundred .bill {
+        font-size: 0.7rem;
+    }
+}
+
+/* Animation Effects */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.status-icon {
+    animation: pulse 2s infinite;
+}
+
+.status-icon.success,
+.status-icon.error,
+.status-icon.closed {
+    animation: none;
+}
+
+/* Additional 3D Effects */
+.cash-register-container {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.cash-register-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    transform: translateZ(-10px);
+    border-radius: var(--border-radius);
+    z-index: -1;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Cash Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cash-register-container">
+        <header class="header">
+            <h1>Cash Register App</h1>
+            <p>Fast transactions, precise change</p>
+        </header>
+        
+        <main class="register-body">
+            <section class="transaction-panel">
+                <div class="price-display">
+                    <h2>Item Price</h2>
+                    <div class="price-screen" id="price-display">$0.00</div>
+                </div>
+                
+                <div class="cash-input">
+                    <h2>Customer Payment</h2>
+                    <div class="input-group">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="cash-input" placeholder="Enter amount" step="0.01" min="0">
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button id="calculate-change" class="btn-primary">Calculate Change</button>
+                    <button id="reset" class="btn-secondary">Reset</button>
+                </div>
+            </section>
+            
+            <section class="results-panel">
+                <div class="status-display">
+                    <h2>Transaction Status</h2>
+                    <div class="status-container" id="status-container">
+                        <div class="status-icon waiting">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/collection/components/icon/svg/cash-outline.svg" alt="Cash icon">
+                        </div>
+                        <div class="status-message" id="status-message">Waiting for transaction...</div>
+                    </div>
+                </div>
+                
+                <div class="change-display">
+                    <h2>Change Due</h2>
+                    <div class="change-container" id="change-container">
+                        <div class="total-change" id="total-change">$0.00</div>
+                        <ul class="change-breakdown" id="change-breakdown">
+                            <!-- Change denominations will be inserted here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="drawer-display">
+            <h2>Cash Drawer Contents</h2>
+            <div class="cash-drawer" id="cash-drawer">
+                <div class="denomination-row">
+                    <div class="denomination penny">
+                        <div class="coin">1¢</div>
+                        <span>PENNY</span>
+                    </div>
+                    <div class="denomination nickel">
+                        <div class="coin">5¢</div>
+                        <span>NICKEL</span>
+                    </div>
+                    <div class="denomination dime">
+                        <div class="coin">10¢</div>
+                        <span>DIME</span>
+                    </div>
+                    <div class="denomination quarter">
+                        <div class="coin">25¢</div>
+                        <span>QUARTER</span>
+                    </div>
+                </div>
+                <div class="denomination-row">
+                    <div class="denomination one">
+                        <div class="bill">$1</div>
+                        <span>ONE</span>
+                    </div>
+                    <div class="denomination five">
+                        <div class="bill">$5</div>
+                        <span>FIVE</span>
+                    </div>
+                    <div class="denomination ten">
+                        <div class="bill">$10</div>
+                        <span>TEN</span>
+                    </div>
+                    <div class="denomination twenty">
+                        <div class="bill">$20</div>
+                        <span>TWENTY</span>
+                    </div>
+                    <div class="denomination hundred">
+                        <div class="bill">$100</div>
+                        <span>ONE HUNDRED</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
